@@ -1,11 +1,7 @@
 import java.util.Scanner;
 
-public class EngineSystem extends FuelSystem{
-//    FuelSystem fuelSystem = new FuelSystem();
-    final private int stockUse = 2;
-//    final private int lvl1Consumption = 2;
-//    final private int lvl2Consumption = 3;
-//    final private int lvl3Consumption = 4;
+public class EngineSystem {
+    final private int fuelUse = 2;
     private int no_engine = 0;
     private int engineFuelConsumption = 0;
     public EngineSystem(){
@@ -14,12 +10,11 @@ public class EngineSystem extends FuelSystem{
         System.out.println("Enter Number of Engine: ");
         no_engine = in.nextInt();
         System.out.println("Number of Engine: "+getNo_engine());
+        setFuelConsumption();
+        System.out.println("Fuel Consumption Rate: " + getEngineFuelUse()+"/s\n");
     }
-    private void setStockUse(){
-        engineFuelConsumption = getNo_engine() * stockUse;
-    }
-    public void calculateFuelUse(){
-
+    private void setFuelConsumption(){
+        engineFuelConsumption = getNo_engine() * fuelUse;
     }
     public int getEngineFuelUse(){return engineFuelConsumption;}
     public int getNo_engine(){return no_engine;}
