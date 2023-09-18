@@ -5,11 +5,11 @@ public class Main {
         Scanner getIn = new Scanner(System.in);
 
         FuelSystem fuelSystem = new FuelSystem();
-        EngineSystem engineSystem = new EngineSystem();
+        //EngineSystem engineSystem = new EngineSystem();
 
-        engineSystem.setNo_engine(getIn);
+
         fuelSystem.loadingFuel(getIn);
-        while (fuelSystem.getCurrentFuel() > 0){
+        while (fuelSystem.getFuel() > 0){
             fuelSystem.calculateFuel();
         }
     }

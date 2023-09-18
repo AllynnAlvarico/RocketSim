@@ -14,12 +14,16 @@ public class FuelSystem {
     private boolean hydrogenFilled= false;
     private boolean bothFilled = false;
     private int fuel = 0;
+    private int fuelEngine = 0;
     private int currentFuel = 0;
     private int fuelMass =0;
     public FuelSystem(){
 
     }
     /*Fuel loading process stage*/
+    /*this process takes the "Scanner 'in'" as the parameter on the loading process
+    * while statement here is if both 2 variable has been filled in "Oxygen & Hydrogen"
+    * starting condition is both are false then the program will proceed to the 'try and catch' to */
     public void loadingFuel(Scanner in) {
             while (!bothFilled) {
                 try {
@@ -46,6 +50,7 @@ public class FuelSystem {
                         System.exit(0);
                     }
                     bothFilled = true; // Stage 4
+                    engine.setNo_engine(in);
                 }catch (InputMismatchException e) {
                     System.out.println("Invalid input! Please enter numeric values.");
                     in.nextLine();
@@ -89,24 +94,24 @@ public class FuelSystem {
         l_hydrogen = in.nextInt();
     }
     public void calculateFuel(){
-        if (getCurrentFuel() > 0){
-            System.out.println("Fuel Gauge: " + getCurrentFuel());
-            currentFuel -= engine.getEngineFuelUse();
+        if (getFuel() > 0){
+            System.out.println("Fuel Gauge: " + getFuel());
+            fuel -= this.fuelEngine;
         }
-        if (getCurrentFuel() <0){
-            currentFuel = 0;
-            System.out.println("Fuel Gauge: " + getCurrentFuel());
+        if (getFuel() <0){
+            fuel = 0;
+            System.out.println("Fuel Gauge: " + getFuel());
         }
     }
     private void fuelPercentage (){
 
     }
-    public float getL_oxygen() {return l_oxygen;}
-    public float getL_hydrogen() {return l_hydrogen;}
-    public int getRequiredHydrogen() {return requiredHydrogen;}
+    public float getL_oxygen(){return l_oxygen;}
+    public float getL_hydrogen(){return l_hydrogen;}
+    public int getRequiredHydrogen(){return requiredHydrogen;}
     public double getMass_oxygen(){return mass_oxygen;}
     public double getMass_hydrogen(){return mass_hydrogen;}
-    public int getFuelMass() {return this.fuelMass;}
+    public int getFuelMass(){return this.fuelMass;}
     public int getFuel(){return fuel;}
     public int getCurrentFuel(){return currentFuel;}
 }
