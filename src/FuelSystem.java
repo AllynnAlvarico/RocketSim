@@ -2,7 +2,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FuelSystem {
-    EngineSystem engine =new EngineSystem();
     final double kg_hydrogen = 0.07078;//kg
     final double kg_oxygen = 1.1417;//kg
     private int l_oxygen = 0;//liters --- users input
@@ -14,8 +13,7 @@ public class FuelSystem {
     private boolean hydrogenFilled= false;
     private boolean bothFilled = false;
     private int fuel = 0;
-    private int fuelEngine = 0;
-    private int currentFuel = 0;
+    private int initialFuel = 0;
     private int fuelMass =0;
     public FuelSystem(){
 
@@ -50,7 +48,7 @@ public class FuelSystem {
                         System.exit(0);
                     }
                     bothFilled = true; // Stage 4
-                    engine.setNo_engine(in);
+//                    engine.setNo_engine(in);
                 }catch (InputMismatchException e) {
                     System.out.println("Invalid input! Please enter numeric values.");
                     in.nextLine();
@@ -73,7 +71,7 @@ public class FuelSystem {
     }
     private void logFuelGauge(){
         setFuel();
-        System.out.println("Fuel Gauge: " + getFuel());
+//        System.out.println("Fuel Gauge: " + getFuel());
     }
     /*Mass Calculation*/
     private void setOxygenMass(){mass_oxygen = (int)(l_oxygen * kg_oxygen);}
@@ -84,6 +82,7 @@ public class FuelSystem {
     private void setFuel(){
         double hydrogenFuel = getL_hydrogen()/14.3;
         fuel = (int)(getL_oxygen() + (float)hydrogenFuel);
+        initialFuel = (int)(getL_oxygen() + (float)hydrogenFuel);
     }
     private void setOxygenFuel(Scanner in){
         System.out.println("Set Rockets fuel oxygen (L): ");
@@ -93,17 +92,20 @@ public class FuelSystem {
         System.out.println("Set Rockets fuel hydrogen (L):");
         l_hydrogen = in.nextInt();
     }
-    public void calculateFuel(){
+    //this is calculating method it uses a pass on parameter 'p_EngineConsumption' to pass the data/consumption rate
+    //of the rocket on the 'EngineSystem' class...
+    public void calculateFuel(int p_EngineConsumption){
         if (getFuel() > 0){
-            System.out.println("Fuel Gauge: " + getFuel());
-            fuel -= this.fuelEngine;
+            //System.out.println("Fuel Gauge: " + getFuel());
+            fuel -= p_EngineConsumption;
         }
         if (getFuel() <0){
             fuel = 0;
-            System.out.println("Fuel Gauge: " + getFuel());
+            //System.out.println("Fuel Gauge: " + getFuel());
         }
     }
-    private void fuelPercentage (){
+    private void fuelPercentage (double currentFuel, int fuelGauge){
+        initialFuel = fuelGauge;
 
     }
     public float getL_oxygen(){return l_oxygen;}
@@ -113,5 +115,5 @@ public class FuelSystem {
     public double getMass_hydrogen(){return mass_hydrogen;}
     public int getFuelMass(){return this.fuelMass;}
     public int getFuel(){return fuel;}
-    public int getCurrentFuel(){return currentFuel;}
+    public int getInitialFuel() {return initialFuel;}
 }
