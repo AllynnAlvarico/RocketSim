@@ -104,8 +104,8 @@ public class FuelSystem {
             //System.out.println("Fuel Gauge: " + getFuel());
         }
     }
-    private void fuelPercentage (double currentFuel, int fuelGauge){
-        initialFuel = fuelGauge;
+    private void fuelPercentage (){
+
 
     }
     public float getL_oxygen(){return l_oxygen;}

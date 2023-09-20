@@ -16,7 +16,7 @@ public class Main {
         while (objFuel.getFuel() > 0){
             //this process calculates the amount of current fuel on the rocket and the fuel rate consumption of the rocket
             objFuel.calculateFuel(objEngine.getEngineFuelUse());
-            objPanel.upperPanel(objEngine.getNo_engine(), objFuel.getInitialFuel(), objFuel.getFuel());
+            objPanel.upperPanel(objEngine.getNo_engine(), objEngine.getEngineFuelUse(), objFuel.getInitialFuel(), objFuel.getFuel());
         }
     }
 }

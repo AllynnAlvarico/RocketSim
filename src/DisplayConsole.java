@@ -4,8 +4,13 @@ public class DisplayConsole {
     private int minutes = 0;
     private int hours = 0;
 
-    public void upperPanel(int p_NoEngine, int p_InitialFuel, int p_FuelGauge){
-        setLeftSide(p_NoEngine, p_InitialFuel, p_FuelGauge);
+    public void upperPanel(int p_NoEngine, int p_FuelConsumption, int p_InitialFuel, int p_FuelGauge){
+        setSeconds();
+        setMinutes();
+        setLeftSide(p_NoEngine, p_FuelConsumption);
+        setMiddleSide(p_InitialFuel, p_FuelGauge);
+        setRightSide();
+        System.out.println("------------------------------------------------------");
     }
     public void middlePanel(){
 
@@ -13,20 +18,18 @@ public class DisplayConsole {
     public void lowerPanel(){
 
     }
-    public void setLeftSide(int p_NoEngine,int p_InitialFuel,int p_FuelGauge){
-        setSeconds();
-        setMinutes();
+    public void setLeftSide(int p_NoEngine, int p_FuelConsumption){
         System.out.print("Engine: " + p_NoEngine);
+        System.out.print("  Rate: " + p_FuelConsumption + "/s");
+    }
+    public void setMiddleSide(int p_InitialFuel,int p_FuelGauge){
         System.out.print("      Fuel Gauge: " + p_FuelGauge + "/" + p_InitialFuel);
+    }
+    public void setRightSide(){
         String secondPadded = String.format("%02d", getSeconds());
         String minutePadded = String.format("%02d", getMinutes());
-        System.out.println("      Time Elapse: " +  minutePadded+":"+secondPadded);
-        System.out.println("------------------------------------------------------");
+        System.out.println("      Time Elapse: " +  minutePadded + ":" + secondPadded);
     }
-    public void setMiddleSide(){}
-    public void setRightSide(){}
-
-
     public void setSeconds(){
         seconds += 1;
     }
