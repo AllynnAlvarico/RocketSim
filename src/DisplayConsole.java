@@ -6,7 +6,6 @@ public class DisplayConsole {
 
     public void upperPanel(int p_NoEngine, int p_InitialFuel, int p_FuelGauge){
         setLeftSide(p_NoEngine, p_InitialFuel, p_FuelGauge);
-
     }
     public void middlePanel(){
 
