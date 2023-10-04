@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2387b721-0bdc-4a17-ae52-b3b42ef156e9" name="Changes" comment="Added Display Console Class for prompt">
-      <change afterPath="$PROJECT_DIR$/src/NavigationSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Thrust.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DisplayConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DisplayConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FuelSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

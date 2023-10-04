@@ -12,7 +12,7 @@ public class Main {
         objFuel.loadingFuel(getIn);
         //Stage 2 is inputs the amount of engine to the rocket
         objEngine.setNo_engine(getIn);
-
+        objPanel.upperPanel(objEngine.getNo_engine(), objEngine.getEngineFuelUse(), objFuel.getInitialFuel(), objFuel.getFuel());
         while (objFuel.getFuel() > 0){
             //this process calculates the amount of current fuel on the rocket and the fuel rate consumption of the rocket
             objFuel.calculateFuel(objEngine.getEngineFuelUse());
