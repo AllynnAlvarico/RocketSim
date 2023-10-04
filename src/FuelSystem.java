@@ -71,7 +71,6 @@ public class FuelSystem {
     }
     private void logFuelGauge(){
         setFuel();
-//        System.out.println("Fuel Gauge: " + getFuel());
     }
     /*Mass Calculation*/
     private void setOxygenMass(){mass_oxygen = (int)(l_oxygen * kg_oxygen);}
@@ -96,12 +95,10 @@ public class FuelSystem {
     //of the rocket on the 'EngineSystem' class...
     public void calculateFuel(int p_EngineConsumption){
         if (getFuel() > 0){
-            //System.out.println("Fuel Gauge: " + getFuel());
             fuel -= p_EngineConsumption;
         }
         if (getFuel() <0){
             fuel = 0;
-            //System.out.println("Fuel Gauge: " + getFuel());
         }
     }
     private void fuelPercentage (){
